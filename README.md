@@ -34,9 +34,9 @@ Exchange environment which is the input of the A2C Baseline with our Obstacle To
 |                    |                   |                               |              |        |        |         |
 
 #### ToDo: 
-Add Environment for run.py in OpenAI Baselines 
-Exchange last Layer for adapting Action space 
-
+* Add Environment for run.py in OpenAI Baselines 
+* Exchange last Layer for adapting Action space 
+* Get a new Techfak password to access the Citec GPU Clusters
 
 
 ## Further Outview: 
