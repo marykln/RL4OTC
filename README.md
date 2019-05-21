@@ -30,7 +30,7 @@ Exchange environment which is the input of the A2C Baseline with our Obstacle To
 |  Environment Id    | Observation Space | Action Space                  | Reward Range | tStepL | Trials | rThresh |
 |--------------------|-------------------|-------------------------------|--------------|--------|--------|---------|
 | PongNoFrameskip-v4 | Box(210, 160, 3)  | Discrete(6)                   | (-inf, inf)  | 400000 | 100    | None    |
-| ObstacleTower-Env  | Box(168,168,3)    | MultiDiscrete([3 3 2 3]) = 54 |              |        |        |         |
+| ObstacleTower-Env  | Box(168,168,3)    | MultiDiscrete([3 3 2 3]) = 54 | (-inf, inf)  |        |        |         |
 |                    |                   |                               |              |        |        |         |
 
 #### ToDo: 
