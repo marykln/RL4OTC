@@ -14,6 +14,7 @@ Struggled with OOM-Error - Ressource Exhausted on my Windows Environment
 Use OpenAI Baselines for our RL-Algorithm
 * First Idea: A2C 
 * Possible Next approaches: ACKTR (?) 
+https://openai.com/blog/baselines-acktr-a2c/
 
 ### Issues:
 Couldn't install Baselines on my Windows Environment during some Package Errors 
