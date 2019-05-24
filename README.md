@@ -44,13 +44,14 @@ New Solution: Without OpenAI Baselines
 	* handcrafted way to the key (sequence) and than the next time only handcraft the sequence nearby the key and for every new reset make the distance to the key greater to learn a huger sequence 
 * Implement Actor Critic RL for OTC based on https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/blob/master/contents/8_Actor_Critic_Advantage/AC_CartPole.py
 
-4. Implement own Reward-Function: 
+4. Implement own Reward-Function: (done) 
 * Write own reward function that checks after every event step if key is picked up by checking the discrete box and gets a reward if value > 0 (1 + 1, like for 10 steps: 0 0 0 0 0 0 0 0 0 1 )
 * Implement negative rewards if a long sequence of same actions appears without an increase in rewards
 
 5. Expand Model 
 * Expand to A2C Algorithm instead of Actor-Critic only (+ Advantage) 
-* Automatically increase the gap between key and last handcrafted action 
+* Automatically increase the gap between key and last handcrafted action (?) 
+* Discuss with Andrew 
 
 ##### Later: 
 than continue with a floor where the key is on a stair 
