@@ -22,29 +22,35 @@ Couldn't install Baselines on my Windows Environment during some Package Errors
 Set up Ubuntu Subsystem on Windows and reinstalled everything, so now the Baseline runs for their Gym-
 Environment Pong-NoFrameskip-v4 
 
-## Next steps: 
+New Solution: Without OpenAI Baselines
 
-1. Select Floor with Key on the ground level: 
+## So Far + Next Steps: 
+
+1. Select Floor with Key on the ground level: (done)
 * select a floor where a key is located to start with: Floor 10
 * specifiy tower seed where key is nearby: Tower (Seed) 0 
 	* Second room holds the key on the ground level ( so no jumping needed) .
 * start with a stack of hard coded actions to get into the room where the key is located and see the key 
 
-2. Decrease Action-Space:  
+2. Decrease Action-Space: (ignored)   
 * create action dictionary for all possible actions {1:[1,0,0,0] = just go forward, 2:[1,1,0,0]=go forward and rotate and so on} decrease 54 possible actions to action 
 	* 1 move forward, 
 	* action 2 turn camera rotation left, 
 	* action 3 turn camera rotation right and 
 	* 4 jump forward 
 
-3. Curriculum Learning:
+3. Curriculum Learning: (done) 
 * start with backward experience learning so: 
 	* handcrafted way to the key (sequence) and than the next time only handcraft the sequence nearby the key and for every new reset make the distance to the key greater to learn a huger sequence 
-* Exchange environment which is the input of the A2C Baseline with our Obstacle Tower Env 
+* Implement Actor Critic RL for OTC based on https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/blob/master/contents/8_Actor_Critic_Advantage/AC_CartPole.py
 
 4. Implement own Reward-Function: 
 * Write own reward function that checks after every event step if key is picked up by checking the discrete box and gets a reward if value > 0 (1 + 1, like for 10 steps: 0 0 0 0 0 0 0 0 0 1 )
+* Implement negative rewards if a long sequence of same actions appears without an increase in rewards
 
+5. Expand Model 
+* Expand to A2C Algorithm instead of Actor-Critic only (+ Advantage) 
+* Automatically increase the gap between key and last handcrafted action 
 
 ##### Later: 
 than continue with a floor where the key is on a stair 
