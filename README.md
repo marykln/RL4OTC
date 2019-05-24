@@ -23,25 +23,34 @@ Set up Ubuntu Subsystem on Windows and reinstalled everything, so now the Baseli
 Environment Pong-NoFrameskip-v4 
 
 ## Next steps: 
-Exchange environment which is the input of the A2C Baseline with our Obstacle Tower Env 
 
-RL Pick up key: 
-Write own reward function that checks after every event step if key is picked up by checking the discrete box and gets a reward if value > 0
-1 + 1
-Like for 10 steps: 
-0 0 0 0 0 0 0 0 0 1 
-select a floor where a key is located to start with
-specifiy seed where key is nearby (e.g. 1st room)
-on the ground level ( so no jumping needed) 
+1. Select Floor with Key on the ground level: 
+* select a floor where a key is located to start with: Floor 10
+* specifiy tower seed where key is nearby: Tower (Seed) 0 
+** Second room holds the key on the ground level ( so no jumping needed) .
+* start with a stack of hard coded actions to get into the room where the key is located and see the key 
+
+2. Decrease Action-Space:  
+* create action dictionary for all possible actions {1:[1,0,0,0] = just go forward, 2:[1,1,0,0]=go forward and rotate and so on} decrease 54 possible actions to action 
+** 1 move forward, 
+** action 2 turn camera rotation left, 
+** action 3 turn camera rotation right and 
+** 4 jump forward 
+
+3. Curriculum Learning:
+* start with backward experience learning so: 
+** handcrafted way to the key (sequence) and than the next time only handcraft the sequence nearby the key and for every new reset make the distance to the key greater to learn a huger sequence 
+* Exchange environment which is the input of the A2C Baseline with our Obstacle Tower Env 
+
+4. Implement own Reward-Function: 
+* Write own reward function that checks after every event step if key is picked up by checking the discrete box and gets a reward if value > 0 (1 + 1, like for 10 steps: 0 0 0 0 0 0 0 0 0 1 )
+
+
+##### Later: 
 than continue with a floor where the key is on a stair 
-create action dictionary for all possible actions {1:[1,0,0,0] = just go forward, 2:[1,1,0,0]=go forward and rotate and so on} decrease 54 possible actions to action 1 move forward, action 2 turn camera rotation left, action 3 turn camera rotation right and 4 jump forward 
-for example start with floor 61 (try)
-start with a stack of hard coded actions to get into the room where the key is located and see the key 
 when it founds the key only select the parts right before finding the key plus a part of the same size to use it for training (collect experiences, for example 10.000 )
-so starting with one room 
 after that improve to more complicated floors like with key on stairs
-start with backward experience learning so : 
-handcrafted way to the key (sequence) and than the next time only handcraft the sequence nearby the key and for every new reset make the distance to the key greater to learn a huger sequence 
+
 
 #### Comparison: 
 	
