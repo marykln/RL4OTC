@@ -256,12 +256,13 @@ if __name__ == "__main__":
             s_, r, done, info = env.step(a)
             print(info)
             if info['total_keys'] > 0:
+                r = 1
                 bad_seq = 0
                 score += 1
                 done = True
             # if one sequence is repeated often without getting rewards - punish it
             if bad_seq > 10:
-                bad_seq = 0
+                r = - 0.1 
                 score -= 0.1
             s_ = rgb2gray(s_)
             s_ = np.expand_dims(s_, axis=2)
@@ -277,6 +278,8 @@ if __name__ == "__main__":
             # check if action gets repeated
             if a == track_a[-1]:
                 bad_seq += 1
+            else:
+                bad_seq = 0
 
             td_error = critic.learn(s, score, s_)  # gradient = grad[r + gamma * V(s_) - V(s)]
             actor.learn(s, a, td_error)  # true_gradient = grad[logPi(s,a) * td_error]
