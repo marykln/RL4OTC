@@ -49,7 +49,7 @@ New Solution: Without OpenAI Baselines
 * Implement negative rewards if a long sequence of same actions appears without an increase in rewards
 
 5. Expand Model 
-* Expand to A2C Algorithm instead of Actor-Critic only (+ Advantage) 
+* Expand to A2C Algorithm instead of Actor-Critic only (+ Advantage) (done)
 * Automatically increase the gap between key and last handcrafted action (?) 
 * Discuss with Andrew 
 
@@ -57,7 +57,7 @@ New Solution: Without OpenAI Baselines
 than continue with a floor where the key is on a stair 
 when it founds the key only select the parts right before finding the key plus a part of the same size to use it for training (collect experiences, for example 10.000 )
 after that improve to more complicated floors like with key on stairs
-
+expand to multi-agents?  
 
 #### Comparison: 
 	
