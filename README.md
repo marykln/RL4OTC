@@ -45,13 +45,16 @@ New Solution: Without OpenAI Baselines
 * Implement Actor Critic RL for OTC based on https://github.com/MorvanZhou/Reinforcement-learning-with-tensorflow/blob/master/contents/8_Actor_Critic_Advantage/AC_CartPole.py
 
 4. Implement own Reward-Function: (done) 
-* Write own reward function that checks after every event step if key is picked up by checking the discrete box and gets a reward if value > 0 (1 + 1, like for 10 steps: 0 0 0 0 0 0 0 0 0 1 )
-* Implement negative rewards if a long sequence of same actions appears without an increase in rewards
+* Write own reward function that checks after every event step if key is picked up by checking the discrete box and gets a reward if value > 0 (1 + 1, like for 10 steps: 0 0 0 0 0 0 0 0 0 1 ) 
+* Implement negative rewards if a long sequence of same actions appears without an increase in rewards 
 
 5. Expand Model 
 * Expand to A2C Algorithm instead of Actor-Critic only (+ Advantage) (done)
-* Automatically increase the gap between key and last handcrafted action (?) 
-* Discuss with Andrew 
+* train 100 episodes - time is over < 100-1000 steps (done)
+* test 5 episodes (only policy defined actions) (done) 
+* env.reset() shortly after the agent picks up the key, ~5 steps afterwards (done)
+* Automatically increase the gap between key and last handcrafted action - when test performance > 50%, put the agent 1 step further from the key (ToDo) 
+
 
 ##### Later: 
 than continue with a floor where the key is on a stair 
