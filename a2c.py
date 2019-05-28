@@ -223,7 +223,7 @@ if __name__ == "__main__":
 
             s_, r, done, info = env.step(a)
             t += 1
-            if i_episode % 100 == 0:
+            if i_episode % 100 == 0 and i_episode != 0:
                 test_phase = True
                 test_counter += 1
                 if test_phase:
