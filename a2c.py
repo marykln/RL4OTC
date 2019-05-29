@@ -189,22 +189,27 @@ if __name__ == "__main__":
     test_counter = 0
     keys_in_test = 0
     performance = []
+    steps = [26, 14, 3]
     for i_episode in range(MAX_EPISODE):
         s = env.reset()
         config = {'tower-seed': 0, 'starting-floor': 10, 'dense-reward': 1, 'agent-perspective': 1, 'allowed-rooms': 1,
                   'allowed-modules': 0,
                   'allowed-floors': 0}
         obs = env.reset(config=config)
-        action = 18
-        for i in range(26):
-            env.step(action)
-        action = 6
-        for i in range(14):
-            env.step(action)
-        action = 18
-        for i in range(3):
-            env.step(action)
-        s, reward, done, info = env.step(action)
+        np.trim_zeros(steps)
+
+        def handcrafted_step(act, go):
+            try:
+                for i in range(go):
+                    env.step(act)
+            except IndexError:
+                pass
+
+        handcrafted_step(18, steps[0])
+        handcrafted_step(6, steps[1])
+        handcrafted_step(18, steps[2])
+
+        s, reward, done, info = env.step(18)
         s = rgb2gray(s)
         s = np.expand_dims(s, axis=2)
 
@@ -229,6 +234,8 @@ if __name__ == "__main__":
                 if test_phase:
                     if test_counter > 5:
                         performance.append(keys_in_test / test_counter)
+                        if keys_in_test > 2:
+                            steps[-1] -= 1
                         test_counter = 0
                         keys_in_test = 0
                         test_phase = False
