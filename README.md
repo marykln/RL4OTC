@@ -48,13 +48,15 @@ New Solution: Without OpenAI Baselines
 * Write own reward function that checks after every event step if key is picked up by checking the discrete box and gets a reward if value > 0 (1 + 1, like for 10 steps: 0 0 0 0 0 0 0 0 0 1 ) 
 * Implement negative rewards if a long sequence of same actions appears without an increase in rewards 
 
-5. Expand Model 
-* Expand to A2C Algorithm instead of Actor-Critic only (+ Advantage) (done)
-* train 100 episodes - time is over < 100-1000 steps (done)
-* test 5 episodes (only policy defined actions) (done) 
-* env.reset() shortly after the agent picks up the key, ~5 steps afterwards (done)
-* Automatically increase the gap between key and last handcrafted action - when test performance > 50%, put the agent 1 step further from the key (ToDo) 
+5. Expand Model (done)
+* Expand to A2C Algorithm instead of Actor-Critic only (+ Advantage) 
+* train 100 episodes - time is over < 100-1000 steps 
+* test 5 episodes (only policy defined actions) 
+* env.reset() shortly after the agent picks up the key, ~5 steps afterwards
+* Automatically increase the gap between key and last handcrafted action - when test performance > 50%, put the agent 1 step further from the key  
 
+#### Open Question to Solve: 
+Why repeats the agent actions at the beginning of the training so often? Should be random 
 
 ##### Later: 
 than continue with a floor where the key is on a stair 
