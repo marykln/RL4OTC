@@ -77,6 +77,10 @@ expand to multi-agents?
 * Exchange last Layer for adapting Action space 
 * Get a new Techfak password to access the Citec GPU Clusters
 
+## New Steps: 
+* get OpenAI Baseline for A2C running 
+* follow the skizze 
+
 
 ## Further Outview: 
 Take a look at rwightmans pytorch approachs, which leads the agent to solve upto 10 floors (6-7 in average): https://github.com/rwightman/obstacle-tower-pytorch-a2c-ppo 
